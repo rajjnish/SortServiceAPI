@@ -78,7 +78,7 @@ def sort_list_reverse():
     check_input_list = verify_non_integer_list(data_list)
     # Check if all elements in the list are integer
     if check_input_list:
-        sorted_list = sort_list_asc(data_list)
+        sorted_list = sort_list_rev(data_list)
         return jsonify({"status": "success", 'sorted_list': sorted_list})
     else:
         out = err_out(data_j)

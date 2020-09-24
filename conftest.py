@@ -1,8 +1,6 @@
 import sys, os
-import json
 import jsonschema
 from jsonschema import validate
-import pytest
 import requests
 
 BASE_URL = "http://localhost:5000"
