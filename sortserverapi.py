@@ -29,10 +29,8 @@ def sort_list():
     data_j = json.loads(data)
     key_val = list(data_j.keys())
 
-    if len(json.loads(data)['list']) == 0:
-        out = err_out(data)
-        response = jsonify(out), 401
-        return response
+    if len(data_j['list']) <= 1:
+        return jsonify({"status": "success", 'sorted_list': data_j['list']})
 
     if key_val[0] != 'list':
         out = err_out(data_j)
@@ -52,10 +50,8 @@ def sort_list_reverse():
     data_j = json.loads(data)
     key_val = list(data_j.keys())
 
-    if len(json.loads(data)['list']) == 0:
-        out = err_out(data)
-        response = jsonify(out), 401
-        return response
+    if len(data_j['list']) <= 1:
+        return jsonify({"status": "success", 'sorted_list': data_j['list']})
 
     if key_val[0] != 'list':
         out = err_out(data_j)
@@ -87,6 +83,7 @@ def sort_list_test():
     #
     # return jsonify({"status": "success", 'sorted_list': sorted_list})
     return {'status': 'invalid input', 'you sent': key_val[0]}
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -4,16 +4,13 @@ import json
 import requests
 
 
-
-
 @pytest.mark.sort_negative
 def test_sort_asc_request_neg1():
     """sorting asc request"""
-    payload = json.dumps({"list": []})
+    payload = json.dumps({"list": [2]})
     response = post_req_sort(payload)
     print(response.json())
-    assert response.status_code == 401
-    assert response.json()['status'] == "invalid input"
+    assert response.status_code == 200
 
 
 @pytest.mark.sort_negative
@@ -24,6 +21,7 @@ def test_sort_asc_request_neg2():
     print(response.json())
     # assert response.status_code == 401
     # assert response.json()['status'] == "invalid input"
+
 
 def test_sort_asc_request1():
     """sorting asc request"""

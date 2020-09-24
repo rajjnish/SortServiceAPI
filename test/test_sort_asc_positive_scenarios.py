@@ -5,8 +5,10 @@ import json
 
 @pytest.mark.sort_asc_positive
 @pytest.mark.parametrize(('input_list', 'exp_res'),[([10, 5, 18, 35, 4, 78], [4, 5, 10, 18, 35, 78]),
-                                               ([12,1,9], [1,9,12]),
-                                               ([-1, -2, 1, 2], [-2, -1, 1, 2])])
+                                               ([12,1,9], [1, 9, 12]),
+                                               ([-1, -2, 1, 2], [-2, -1, 1, 2]),
+                                                    ([], []),
+                                                    ([2], [2])])
 def test_sort_asc_request(input_list, exp_res):
     """sorting asc request"""
     payload = json.dumps({"list": input_list})
