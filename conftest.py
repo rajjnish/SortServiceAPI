@@ -31,7 +31,7 @@ def post_req_sort(data=None):
     return response
 
 
-def post_req_sort_rev(data):
+def post_req_sort_rev(data=None):
     """ Get request to the reverse endpoint"""
     response = requests.post(BASE_URL + POST_SORT_REV_ENDPOINT, json=data, timeout=DEFAULT_TIMEOUT)
     return response

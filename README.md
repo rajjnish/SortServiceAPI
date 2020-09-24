@@ -16,9 +16,9 @@ pip install -r requirements.txt
 
 There are two endpoints one for ASC Sorting and second one for Reverse sorting 
 
-/v1/sort         -- response {"list": [1, 2, 9, 10]}
+/v1/sort         -- response : sorted list {"list": [1, 2, 9, 10]}
 
-/v1/reverse    -- response {"list": [10, 9, 2, 1]}
+/v1/reverse    -- response : sorted list {"list": [10, 9, 2, 1]}
 
 Payload request format:
 

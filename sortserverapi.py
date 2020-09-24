@@ -39,13 +39,13 @@ def sort_list():
     data_j = json.loads(data)
     key_val = list(data_j.keys())
 
-    if len(data_j['list']) <= 1:
-        return jsonify({"status": "success", 'sorted_list': data_j['list']})
-
     if key_val[0] != 'list':
         out = err_out(data_j)
         response = jsonify(out), 401
         return response
+
+    if len(data_j['list']) <= 1:
+        return jsonify({"status": "success", 'sorted_list': data_j['list']})
 
     data_list = json.loads(data)['list']
     check_input_list = verify_non_integer_list(data_list)
@@ -66,13 +66,13 @@ def sort_list_reverse():
     data_j = json.loads(data)
     key_val = list(data_j.keys())
 
-    if len(data_j['list']) <= 1:
-        return jsonify({"status": "success", 'sorted_list': data_j['list']})
-
     if key_val[0] != 'list':
         out = err_out(data_j)
         response = jsonify(out), 401
         return response
+
+    if len(data_j['list']) <= 1:
+        return jsonify({"status": "success", 'sorted_list': data_j['list']})
 
     data_list = json.loads(data)['list']
     check_input_list = verify_non_integer_list(data_list)
@@ -84,27 +84,6 @@ def sort_list_reverse():
         out = err_out(data_j)
         response = jsonify(out), 401
         return response
-
-
-@app.route('/v1/test', methods=['POST'])
-def sort_list_test():
-    """sort endpoint to send Simple Asc order Sorting request """
-    data = request.get_json()
-    data_j = json.loads(data)
-    key_val = list(data_j.keys())
-    # if len(json.loads(data)['list']) == 0:
-    #     out = err_out(data)
-    #     response = jsonify(out), 401
-    #     return response
-    # elif len(json.loads(data)[0]) != 'list':
-    #     response = jsonify("{'status': 'invalid input', 'you sent': data}"), 401
-    #     return response
-    #
-    # data_list = json.loads(data)['list']
-    # sorted_list = sort_list_asc(data_list)
-    #
-    # return jsonify({"status": "success", 'sorted_list': sorted_list})
-    return {'status': 'invalid input', 'you sent': key_val[0]}
 
 
 if __name__ == '__main__':
