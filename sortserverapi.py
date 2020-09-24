@@ -18,6 +18,16 @@ def sort_list_rev(list_no):
     return sorted(list_no, reverse=True)
 
 
+def verify_non_integer_list(input_list):
+    """ returns True if all list items are integer else False"""
+    for e in input_list:
+        if type(e) != int:
+            return False
+        else:
+            continue
+    return True
+
+
 def err_out(data):
     return {'status': 'invalid input', 'you sent': data}
 
@@ -38,9 +48,15 @@ def sort_list():
         return response
 
     data_list = json.loads(data)['list']
-    sorted_list = sort_list_asc(data_list)
-
-    return jsonify({"status": "success", 'sorted_list': sorted_list})
+    check_input_list = verify_non_integer_list(data_list)
+    # Check if all elements in the list are integer
+    if check_input_list:
+        sorted_list = sort_list_asc(data_list)
+        return jsonify({"status": "success", 'sorted_list': sorted_list})
+    else:
+        out = err_out(data_j)
+        response = jsonify(out), 401
+        return response
 
 
 @app.route('/v1/reverse', methods=['POST'])
@@ -59,9 +75,15 @@ def sort_list_reverse():
         return response
 
     data_list = json.loads(data)['list']
-    sorted_list = sort_list_rev(data_list)
-
-    return jsonify({"status": "success", 'sorted_list': sorted_list})
+    check_input_list = verify_non_integer_list(data_list)
+    # Check if all elements in the list are integer
+    if check_input_list:
+        sorted_list = sort_list_asc(data_list)
+        return jsonify({"status": "success", 'sorted_list': sorted_list})
+    else:
+        out = err_out(data_j)
+        response = jsonify(out), 401
+        return response
 
 
 @app.route('/v1/test', methods=['POST'])

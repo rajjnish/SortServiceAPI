@@ -8,9 +8,11 @@ import json
                                                      ([12, 1, 9], [12, 9, 1]),
                                                      ([-1, -2, 1, 2], [2, 1, -1, -2]),
                                                      ([], []),
-                                                     ([2], [2])])
+                                                     ([2], [2]),
+                                                     ([-2147483647, -2147483648, 2147483648, 2147483647],
+                                                      [2147483648, 2147483647, -2147483647, -2147483648])])
 def test_sort_asc_request(input_list, exp_res):
-    """sorting asc request"""
+    """sorting asc request - data driven test"""
     payload = json.dumps({"list": input_list})
     response = post_req_sort_rev(payload)
     print(response.json())

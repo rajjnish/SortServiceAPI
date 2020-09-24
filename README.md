@@ -27,6 +27,8 @@ Run the tests:
    or from command line:
    
    pytest -v -m sort_negative
+   
    pytest -v -m sort_asc_positive
+   
    pytest -v -m sort_rev_positive
    
