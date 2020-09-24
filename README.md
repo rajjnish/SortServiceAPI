@@ -2,6 +2,9 @@
 # Steps to set up project  : The set can be done done on Windows or Linux
 # Python interpreter : Python3.8
 
+# clone the repo
+https://github.com/rajjnish/AptitudeTestSortServiceAPI.git
+
 # install dependencies:
 
 pip install -r requirements.txt
