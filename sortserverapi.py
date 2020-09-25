@@ -47,6 +47,11 @@ def sort_list():
     if len(data_j['list']) <= 1:
         return jsonify({"status": "success", 'sorted_list': data_j['list']})
 
+    if len(data_j) >= 2:
+        out = err_out(data_j)
+        response = jsonify(out), 401
+        return response
+
     data_list = json.loads(data)['list']
     check_input_list = verify_non_integer_list(data_list)
     # Check if all elements in the list are integer
@@ -61,7 +66,7 @@ def sort_list():
 
 @app.route('/v1/reverse', methods=['POST'])
 def sort_list_reverse():
-    """reverse endpoint to send Sorting request for sorting request with Reverse True"""
+    """reverse endpoint to send Sorting request with Reverse True"""
     data = request.get_json()
     data_j = json.loads(data)
     key_val = list(data_j.keys())
@@ -73,6 +78,11 @@ def sort_list_reverse():
 
     if len(data_j['list']) <= 1:
         return jsonify({"status": "success", 'sorted_list': data_j['list']})
+
+    if len(data_j) >= 2:
+        out = err_out(data_j)
+        response = jsonify(out), 401
+        return response
 
     data_list = json.loads(data)['list']
     check_input_list = verify_non_integer_list(data_list)

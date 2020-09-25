@@ -36,6 +36,24 @@ def test_sort_rev_request_neg(input_list):
 
 
 @pytest.mark.sort_negative
+def test_sort_asc_request_more_than_one_list():
+    """sorting asc request - More than one list is sent in the Payload """
+    payload = json.dumps({"list": [3, 2, 9, 1], "list1": [10, 2, 9, 1]})
+    response = post_req_sort(payload)
+    print(response.json())
+    assert response.status_code == 401
+
+
+@pytest.mark.sort_negative
+def test_rev_asc_request_more_than_one_list():
+    """sorting Reverse request - More than one list is sent in the Payload """
+    payload = json.dumps({"list": [3, 2, 9, 1], "list1": [10, 2, 9, 1]})
+    response = post_req_sort_rev(payload)
+    print(response.json())
+    assert response.status_code == 401
+
+
+@pytest.mark.sort_negative
 def test_sort_asc_request_neg_invalid_key():
     """sorting asc request - The Key's value of the payload is incorrect/unexpected """
     payload = json.dumps({"invalid": [3, 2, 9, 1]})
