@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    """ Root Endpoint for GET request """
+    """ Root endpoint for GET request """
     return jsonify({"server": 'sorting service api', "status": "success"})
 
 
@@ -28,6 +28,14 @@ def verify_non_integer_list(input_list):
     return True
 
 
+def json_data_dict(data):
+    return json.loads(data)
+
+
+def dict_keys_list(input_dict):
+    return list(input_dict.keys())
+
+
 def err_out(data):
     return {'status': 'invalid input', 'you sent': data}
 
@@ -36,8 +44,8 @@ def err_out(data):
 def sort_list():
     """sort endpoint to send Simple Asc order Sorting request """
     data = request.get_json()
-    data_j = json.loads(data)
-    key_val = list(data_j.keys())
+    data_j = json_data_dict(data)
+    key_val = dict_keys_list(data_j)
 
     if key_val[0] != 'list':
         out = err_out(data_j)
@@ -68,8 +76,8 @@ def sort_list():
 def sort_list_reverse():
     """reverse endpoint to send Sorting request with Reverse True"""
     data = request.get_json()
-    data_j = json.loads(data)
-    key_val = list(data_j.keys())
+    data_j = json_data_dict(data)
+    key_val = dict_keys_list(data_j)
 
     if key_val[0] != 'list':
         out = err_out(data_j)
