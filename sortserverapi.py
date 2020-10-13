@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
-def hello_world():
+def api_home():
     """ Root endpoint for GET request """
     return jsonify({"server": 'sorting service api', "status": "success"})
 
