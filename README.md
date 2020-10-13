@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 # to run tests: 
 
-- run the sortserverapi.py from terminal (command line) 
+1) - run the sortserverapi.py from terminal (command line) 
 
 There are two endpoints one for ASC Sorting and second one for Reverse sorting 
 
@@ -24,10 +24,7 @@ Payload request format:
 {"list": [1,10, 9, 2]}
 
 
-Run the tests:
-- test suites can be run individually from pycharm by setting the "Integrated tool" as Pytest
-
-   or from command line:
+2) Run the tests:  command line:
    
    pytest -m sort_negative -vv test/
    
