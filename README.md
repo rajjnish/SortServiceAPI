@@ -1,10 +1,9 @@
 
-# Steps to set up project  : The set can be done done on Windows or Linux
-# Python interpreter : Python3.8
+# Steps to set up project  : Windows/Linux
 
 # clone the repo
 
-https://github.com/rajjnish/AptitudeTestSortServiceAPI.git
+https://github.com/rajjnish/SortServiceAPI.git
 
 # install dependencies:
 
